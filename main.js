@@ -1,4 +1,4 @@
-// DOM Elements
+
 const themeToggle = document.getElementById('theme-toggle');
 const translateBtn = document.getElementById('translate-btn');
 const translateText = document.getElementById('translate-text');
@@ -8,12 +8,10 @@ const contactForm = document.getElementById('contact-form');
 const currentYearEl = document.getElementById('current-year');
 const body = document.body;
 
-// Set current year
 currentYearEl.textContent = new Date().getFullYear();
 
-// Theme toggle functionality
 themeToggle.addEventListener('click', () => {
-    // Toggle between light and dark mode
+
     if (body.classList.contains('dark-mode')) {
         body.classList.remove('dark-mode');
         body.classList.add('light-mode');
@@ -24,12 +22,11 @@ themeToggle.addEventListener('click', () => {
         themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
     }
 
-    // Save preference to localStorage
+
     const currentTheme = body.classList.contains('dark-mode') ? 'dark' : 'light';
     localStorage.setItem('theme', currentTheme);
 });
 
-// Load saved theme preference
 document.addEventListener('DOMContentLoaded', () => {
     const savedTheme = localStorage.getItem('theme') || 'dark';
     if (savedTheme === 'light') {
@@ -39,13 +36,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Mobile menu toggle
 menuToggle.addEventListener('click', () => {
     menuToggle.classList.toggle('active');
     navLinks.classList.toggle('active');
 });
 
-// Close mobile menu when link is clicked
 document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', () => {
         menuToggle.classList.remove('active');
@@ -53,7 +48,6 @@ document.querySelectorAll('.nav-links a').forEach(link => {
     });
 });
 
-// Translations
 const translations = {
     es: {
         "inicio": "Inicio",
@@ -124,13 +118,51 @@ const translations = {
         "nivel-ingles": "B1 - Intermediate",
         "espanol": "Spanish",
         "nivel-espanol": "Native"
+    },
+    "certificaciones": {
+        "es": "Certificaciones",
+        "en": "Certifications"
+    },
+    "certificaciones-title": {
+        "es": "Certificaciones",
+        "en": "Certifications"
+    },
+    "cert-python-ai": {
+        "es": "Proyecto Python para IA y desarrollo de aplicaciones",
+        "en": "Python Project for AI and Application Development"
+    },
+    "cert-python-flask": {
+        "es": "Desarrollo de aplicaciones de IA con Python y Flask",
+        "en": "AI Application Development with Python and Flask"
+    },
+    "cert-it-support": {
+        "es": "Certificado de soporte de TI de Google",
+        "en": "Google IT Support Certificate"
+    },
+    "cert-project-management": {
+        "es": "Certificado de gestión de proyectos de Google",
+        "en": "Google Project Management Certificate"
+    },
+    "ver-certificados": {
+        "es": "Ver todos los certificados",
+        "en": "View all certificates"
+    },
+    "certificados-title": {
+        "es": "Certificados",
+        "en": "Certificates"
+    },
+    "ver-certificado": {
+        "es": "Ver Certificado",
+        "en": "View Certificate"
+    },
+    "volver": {
+        "es": "Volver",
+        "en": "Back"
     }
 };
 
-// Current language
 let currentLang = 'es';
 
-// Translation function
 function translatePage(lang) {
     const elements = document.querySelectorAll('[data-i18n]');
     
@@ -146,35 +178,51 @@ function translatePage(lang) {
         }
     });
     
-    // Update button text
+
     translateText.textContent = lang === 'es' ? 'English' : 'Español';
     
-    // Update language
+
     currentLang = lang;
 }
 
-// Language toggle
 translateBtn.addEventListener('click', () => {
     const newLang = currentLang === 'es' ? 'en' : 'es';
     translatePage(newLang);
 });
 
-// Contact form submit
-contactForm.addEventListener('submit', (e) => {
+contactForm?.addEventListener('submit', async (e) => {
     e.preventDefault();
+    const submitButton = contactForm.querySelector('button[type="submit"]');
+    const originalText = submitButton.textContent;
     
-    // In a real implementation, you would send the form data to a server
-    // For now, let's just clear the form and show an alert
-    
-    const name = document.getElementById('name').value;
-    alert(currentLang === 'es' ? 
-        `Gracias ${name}, tu mensaje ha sido enviado.` : 
-        `Thank you ${name}, your message has been sent.`);
-    
-    contactForm.reset();
+    try {
+        submitButton.disabled = true;
+        submitButton.textContent = currentLang === 'es' ? 'Enviando...' : 'Sending...';
+        
+        const response = await fetch(contactForm.action, {
+            method: 'POST',
+            body: new FormData(contactForm),
+            headers: {
+                'Accept': 'application/json'
+            }
+        });
+        
+        if (response.ok) {
+            alert(currentLang === 'es' ? 'Mensaje enviado correctamente!' : 'Message sent successfully!');
+            contactForm.reset();
+        } else {
+            throw new Error('Error al enviar el mensaje');
+        }
+    } catch (error) {
+        alert(currentLang === 'es' ? 
+            'Error al enviar el mensaje. Por favor, intenta de nuevo.' : 
+            'Error sending message. Please try again.');
+    } finally {
+        submitButton.disabled = false;
+        submitButton.textContent = originalText;
+    }
 });
 
-// Animate progress bars when they come into view
 function animateProgressBars() {
     const progressBars = document.querySelectorAll('.progress');
     
@@ -190,49 +238,44 @@ function animateProgressBars() {
     }, { threshold: 0.5 });
     
     progressBars.forEach(bar => {
-        // Reset width to 0
+    
         const originalWidth = bar.getAttribute('style');
         bar.style.width = '0%';
         
-        // Store original width as data attribute
+    
         bar.parentElement.setAttribute('data-value', originalWidth);
         
-        // Observe
+    
         observer.observe(bar);
     });
 }
 
-// Initialize on page load
 document.addEventListener('DOMContentLoaded', () => {
-    // Set default theme and language
+
     document.body.classList.add('dark-mode');
     currentLang = 'es';
     
-    // Animate elements
+
     animateProgressBars();
 });
 
-// Disable right click on the entire page
 document.addEventListener('contextmenu', (e) => {
     e.preventDefault();
     return false;
 });
 
-// Disable text selection
 document.addEventListener('selectstart', (e) => {
     e.preventDefault();
     return false;
 });
 
-// Disable dragging
 document.addEventListener('dragstart', (e) => {
     e.preventDefault();
     return false;
 });
 
-// Disable keyboard shortcuts
 document.addEventListener('keydown', (e) => {
-    // Prevent Ctrl+S, Ctrl+U, Ctrl+Shift+I, F12
+
     if (
         (e.ctrlKey && e.key === 's') || 
         (e.ctrlKey && e.key === 'u') || 
@@ -242,4 +285,30 @@ document.addEventListener('keydown', (e) => {
         e.preventDefault();
         return false;
     }
+});
+
+function updateTranslations(lang) {
+    document.querySelectorAll('[data-i18n]').forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        if (translations[key]) {
+            if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                element.placeholder = translations[key][lang];
+            } else {
+                element.textContent = translations[key][lang];
+            }
+        }
+    });
+}
+
+document.getElementById('translate-btn').addEventListener('click', () => {
+    const currentLang = document.documentElement.lang;
+    const newLang = currentLang === 'es' ? 'en' : 'es';
+    document.documentElement.lang = newLang;
+    document.getElementById('translate-text').textContent = currentLang === 'es' ? 'Español' : 'English';
+    updateTranslations(newLang);
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const initialLang = document.documentElement.lang || 'es';
+    updateTranslations(initialLang);
 });
