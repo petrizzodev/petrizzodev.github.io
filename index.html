@@ -211,7 +211,7 @@
                             <img src="./src/majig-shop.jpg" alt="Tienda MAJIG" />
                         </div>
                         <div class="project-info">
-                            <h3>Tienda MAJIG</h3>
+                            <h3>MAJIG SHOP</h3>
                             <p data-i18n="tienda-desc">Tienda web con Woocommerce. Implementación completa de tienda online con sistema de pagos, gestión de inventario y panel administrativo personalizado.</p>
                             <div class="project-links">
                                 <a href="https://majig.com.co" target="_blank" rel="noopener noreferrer" class="btn small" data-i18n="ver-proyecto">Ver Proyecto</a>
@@ -229,7 +229,7 @@
                             <img src="./src/majig-designer.jpg" alt="Personalizador de productos" />
                         </div>
                         <div class="project-info">
-                            <h3>Personalizador de productos</h3>
+                            <h3>MAJIG PRODUCT DESIGNER</h3>
                             <p data-i18n="personalizador-desc">Permite al usuario crear diseños de productos personalizados para que la tienda estampe los productos y programe el envío. Incluye editor visual y sistema de gestión de pedidos.</p>
                             <div class="project-links">
                                 <a href="https://app.majig.com.co" target="_blank" rel="noopener noreferrer" class="btn small" data-i18n="ver-proyecto">Ver Proyecto</a>
@@ -246,6 +246,55 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="certificaciones" class="certifications">
+            <div class="container">
+                <h2 class="section-title" data-i18n="certificaciones-title">Certificaciones</h2>
+                <div class="badges-grid">
+                    <div class="badge-card">
+                        <a href="https://www.credly.com/badges/c3c3097b-816f-4534-86bd-733c4336bd5c/public_url" target="_blank" rel="noopener noreferrer">
+                            <img src="./src/pythonibm.png" alt="Python Project for AI and Application Development" class="badge-image">
+                            <div class="badge-info">
+                                <h3 data-i18n="cert-python-ai">Proyecto Python para IA y desarrollo de aplicaciones</h3>
+                                <p>IBM & Coursera</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="badge-card">
+                        <a href="https://www.credly.com/badges/cdc3abaf-9a96-4d65-9cf7-a1cc0b0ca1d5/public_url" target="_blank" rel="noopener noreferrer">
+                            <img src="./src/python.png" alt="AI Application Development with Python and Flask" class="badge-image">
+                            <div class="badge-info">
+                                <h3 data-i18n="cert-python-flask">Desarrollo de aplicaciones de IA con Python y Flask</h3>
+                                <p>SENATEC & Coursera</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="badge-card">
+                        <a href="https://www.credly.com/badges/1067a7b6-7ea8-4065-8588-c3d01b978dc0/public_url" target="_blank" rel="noopener noreferrer">
+                            <img src="./src/itsupport.png" alt="Google IT Support Certificate" class="badge-image">
+                            <div class="badge-info">
+                                <h3 data-i18n="cert-it-support">Certificado de soporte de TI de Google</h3>
+                                <p>Google & Coursera</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="badge-card">
+                        <a href="./src/projectmanagement.png" target="_blank" rel="noopener noreferrer">
+                            <img src="./src/projectmanagement.png" alt="Google Project Management Certificate" class="badge-image">
+                            <div class="badge-info">
+                                <h3 data-i18n="cert-project-management">Certificado de gestión de proyectos de Google</h3>
+                                <p>Google & Coursera</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="certificates-link">
+                    <a href="./certificates/certificates.html" class="btn secondary" data-i18n="ver-certificados">
+                        <i class="fas fa-certificate"></i> Ver todos los certificados
+                    </a>
                 </div>
             </div>
         </section>
@@ -274,12 +323,16 @@
                         </div>
                         <div class="form-group">
                             <label for="email" data-i18n="email">Email</label>
-                            <input type="email" id="email" name="email" required>
+                            <input type="email" id="email" name="_replyto" required>
                         </div>
                         <div class="form-group">
                             <label for="message" data-i18n="mensaje">Mensaje</label>
                             <textarea id="message" name="message" rows="5" required></textarea>
                         </div>
+                        <!-- Agregar campo oculto para el asunto -->
+                        <input type="hidden" name="_subject" value="Nuevo mensaje del portafolio">
+                        <!-- Agregar campo honeypot para prevenir spam -->
+                        <input type="text" name="_gotcha" style="display:none">
                         <button type="submit" class="btn primary" data-i18n="enviar-mensaje">Enviar Mensaje</button>
                     </form>
                 </div>
