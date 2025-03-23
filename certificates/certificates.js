@@ -55,6 +55,38 @@ const certificatesData = {
     }
 };
 
+// Translations object
+const translations = {
+    "certificados-title": {
+        "es": "Certificados",
+        "en": "Certificates"
+    },
+    "translate-text": {
+        "es": "English",
+        "en": "Español"
+    },
+    "volver": {
+        "es": "Volver",
+        "en": "Back"
+    }
+    // ...existing certificate translations...
+};
+
+// Update translations function
+function updateTranslations(lang) {
+    document.querySelectorAll('[data-i18n]').forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        if (translations[key]) {
+            if (element.tagName === 'TITLE') {
+                document.title = translations[key][lang];
+            } else if (element.id === 'translate-text') {
+                element.textContent = lang === 'es' ? 'English' : 'Español';
+            } else {
+                element.textContent = translations[key][lang];
+            }
+        }
+    });
+}
 
 function createCertificateCard(cert, currentLang) {
     return `
@@ -88,16 +120,20 @@ function renderCertificates(lang = 'es') {
     });
 }
 
+// Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
+    const translateBtn = document.getElementById('translate-btn');
+    const translateText = document.getElementById('translate-text');
     const themeToggle = document.getElementById('theme-toggle');
     const body = document.body;
-    
 
+    // Theme handling
     const savedTheme = localStorage.getItem('theme') || 'dark';
     body.classList.toggle('light-mode', savedTheme === 'light');
     body.classList.toggle('dark-mode', savedTheme === 'dark');
-    themeToggle.innerHTML = savedTheme === 'light' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
-
+    themeToggle.innerHTML = savedTheme === 'light' ? 
+        '<i class="fas fa-sun"></i>' : 
+        '<i class="fas fa-moon"></i>';
 
     themeToggle.addEventListener('click', () => {
         body.classList.toggle('light-mode');
@@ -111,12 +147,17 @@ document.addEventListener('DOMContentLoaded', () => {
             '<i class="fas fa-moon"></i>';
     });
 
+    // Translation handling
+    translateBtn.addEventListener('click', () => {
+        const currentLang = document.documentElement.lang === 'es' ? 'en' : 'es';
+        document.documentElement.lang = currentLang;
+        translateText.textContent = currentLang === 'es' ? 'English' : 'Español';
+        updateTranslations(currentLang);
+        renderCertificates(currentLang);
+    });
 
-    renderCertificates();
-});
-
-document.getElementById('translate-btn').addEventListener('click', () => {
-    const currentLang = document.documentElement.lang === 'es' ? 'en' : 'es';
-    document.documentElement.lang = currentLang;
-    renderCertificates(currentLang);
+    // Initialize translations and certificates
+    const initialLang = document.documentElement.lang || 'es';
+    updateTranslations(initialLang);
+    renderCertificates(initialLang);
 });
