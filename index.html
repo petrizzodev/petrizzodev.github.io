@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Francisco Petrizzo | Desarrollador Full Stack</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dark-mode">
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">FP</div>
+                <div class="nav-controls">
+                    <button id="translate-btn" aria-label="Traducir"><i class="fas fa-language"></i> <span id="translate-text">English</span></button>
+                    <button id="theme-toggle" aria-label="Cambiar tema"><i class="fas fa-moon"></i></button>
+                    <div class="menu-toggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <ul class="nav-links">
+                        <li><a href="#inicio" data-i18n="inicio">Inicio</a></li>
+                        <li><a href="#sobre-mi" data-i18n="sobre-mi">Sobre Mí</a></li>
+                        <li><a href="#habilidades" data-i18n="habilidades">Habilidades</a></li>
+                        <li><a href="#proyectos" data-i18n="proyectos">Proyectos</a></li>
+                        <li><a href="#contacto" data-i18n="contacto">Contacto</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="inicio" class="hero">
+            <div class="container">
+                <h1 class="glitch-text" data-i18n="hero-title">Hola, soy <span>Francisco Petrizzo</span></h1>
+                <h2 data-i18n="hero-subtitle">Desarrollador Full Stack</h2>
+                <p data-i18n="hero-description">Tecnólogo en Análisis y Diseño de Sistemas de Información, apasionado por resolver problemas con tecnología.</p>
+                <div class="cta-buttons">
+                    <a href="#proyectos" class="btn primary" data-i18n="ver-proyectos">Ver Proyectos</a>
+                    <a href="#contacto" class="btn secondary" data-i18n="contactame">Contáctame</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="sobre-mi" class="about">
+            <div class="container">
+                <h2 class="section-title" data-i18n="sobre-mi-title">Sobre Mí</h2>
+                <div class="about-content">
+                    <div class="about-image">
+                        <div class="profile-container">
+                            <img src="./src/fp.jpg" alt="Francisco Petrizzo" class="profile-image">
+                        </div>
+                    </div>
+                    <div class="about-text">
+                        <p data-i18n="about-p1">Soy Tecnólogo en Análisis y Diseño de Sistemas de Información con experiencia en desarrollo web Full Stack. Me apasiona la tecnología y disfruto resolviendo problemas complejos con soluciones tecnológicas innovadoras.</p>
+                        <p data-i18n="about-p2">Mi enfoque abarca tanto el desarrollo frontend como backend, junto con automatización de pruebas. Busco constantemente expandir mis conocimientos y mejorar mis habilidades para crear aplicaciones robustas y escalables.</p>
+                        <div class="social-links">
+                            <a href="https://github.com/petrizzodev" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                            <a href="https://www.linkedin.com/in/petrizzodev" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="habilidades" class="skills">
+            <div class="container">
+                <h2 class="section-title" data-i18n="habilidades-title">Habilidades</h2>
+                <div class="skills-categories">
+                    <div class="skill-category">
+                        <h3 data-i18n="lenguajes-prog">Lenguajes de Programación</h3>
+                        <div class="skill-items">
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>JavaScript</span>
+                                    <span>Intermedio</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress" style="--progress-width: 75%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>Python</span>
+                                    <span>Intermedio</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress" style="--progress-width: 75%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>Java</span>
+                                    <span>Básico</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress" style="--progress-width: 40%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3 data-i18n="frameworks">Frameworks y Librerías</h3>
+                        <div class="skill-items">
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>React</span>
+                                    <span>Intermedio</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress" style="--progress-width: 75%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>Django</span>
+                                    <span>Intermedio</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress" style="--progress-width: 75%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>ExpressJS</span>
+                                    <span>Intermedio</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress" style="--progress-width: 75%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>FastAPI</span>
+                                    <span>Intermedio</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress" style="--progress-width: 75%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3 data-i18n="herramientas">Herramientas y Tecnologías</h3>
+                        <div class="skill-items">
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>Git</span>
+                                    <span>Intermedio</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress" style="--progress-width: 75%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>Docker</span>
+                                    <span>Intermedio</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress" style="--progress-width: 75%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>Cypress</span>
+                                    <span>Intermedio</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress" style="--progress-width: 75%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3 data-i18n="idiomas">Idiomas</h3>
+                        <div class="skill-items">
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span data-i18n="ingles">Inglés</span>
+                                    <span data-i18n="nivel-ingles">B1 - Intermedio</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress" style="--progress-width: 60%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span data-i18n="espanol">Español</span>
+                                    <span data-i18n="nivel-espanol">Nativo</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress" style="--progress-width: 100%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="proyectos" class="projects">
+            <div class="container">
+                <h2 class="section-title" data-i18n="proyectos-title">Proyectos</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="./src/majig-shop.jpg" alt="Tienda MAJIG" />
+                        </div>
+                        <div class="project-info">
+                            <h3>Tienda MAJIG</h3>
+                            <p data-i18n="tienda-desc">Tienda web con Woocommerce. Implementación completa de tienda online con sistema de pagos, gestión de inventario y panel administrativo personalizado.</p>
+                            <div class="project-links">
+                                <a href="https://majig.com.co" target="_blank" rel="noopener noreferrer" class="btn small" data-i18n="ver-proyecto">Ver Proyecto</a>
+                            </div>
+                            <div class="project-tags">
+                                <span>WordPress</span>
+                                <span>WooCommerce</span>
+                                <span>PHP</span>
+                                <span>JavaScript</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="./src/majig-designer.jpg" alt="Personalizador de productos" />
+                        </div>
+                        <div class="project-info">
+                            <h3>Personalizador de productos</h3>
+                            <p data-i18n="personalizador-desc">Permite al usuario crear diseños de productos personalizados para que la tienda estampe los productos y programe el envío. Incluye editor visual y sistema de gestión de pedidos.</p>
+                            <div class="project-links">
+                                <a href="https://app.majig.com.co" target="_blank" rel="noopener noreferrer" class="btn small" data-i18n="ver-proyecto">Ver Proyecto</a>
+                            </div>
+                            <div class="project-tags">
+                                <span>MongoDB</span>
+                                <span>ExpressJS</span>
+                                <span>React</span>
+                                <span>NodeJS</span>
+                                <span>Cloudinary</span>
+                                <span>Vercel</span>
+                                <span>Render</span>
+                                <span>API REST</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contacto" class="contact">
+            <div class="container">
+                <h2 class="section-title" data-i18n="contacto-title">Contacto</h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3 data-i18n="contacto-info">Información de contacto</h3>
+                        <ul>
+                            <li>
+                                <i class="fab fa-github"></i>
+                                <a href="https://github.com/petrizzodev" target="_blank" rel="noopener noreferrer">github.com/petrizzodev</a>
+                            </li>
+                            <li>
+                                <i class="fab fa-linkedin"></i>
+                                <a href="https://www.linkedin.com/in/petrizzodev" target="_blank" rel="noopener noreferrer">linkedin.com/in/petrizzodev</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <form id="contact-form" class="contact-form" action="https://formspree.io/f/xyzewkza" method="POST">
+                        <div class="form-group">
+                            <label for="name" data-i18n="nombre">Nombre</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" data-i18n="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message" data-i18n="mensaje">Mensaje</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn primary" data-i18n="enviar-mensaje">Enviar Mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; <span id="current-year">2025</span> Francisco Petrizzo. <span data-i18n="derechos">Todos los derechos reservados</span>.</p>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
